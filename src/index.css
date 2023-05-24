@@ -28,21 +28,41 @@ code {
 }
 }
 @media (min-width: 992px) {
-  .m-t-lg{
-    margin:4rem;
-    margin-top:1rem;
-    margin-bottom: 0rem;
-  }
-.m-lg{
-  margin:4rem;
-  margin-top:1rem;
+.t-fs{
+  font-size:1.2rem;
 }
 }  
 
 .btn-violet{
-  background-color: #363A95;
+  background-color: #00193D;
 }
 
 .text-violet{
-  color: #363A95;
+  color: #00193D;
+}
+
+.inputl {
+    height: 60px;
+    outline: none;
+} 
+
+.it {
+  transform: translateY(-0.7rem);
+} 
+
+.lt {
+  transform: translateZ(20rem);
+} 
+
+.form-control.is-invalid, .was-validated .form-control:invalid{
+  background-image: none;
+}
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+.text-grayl{
+  color: #C7C7C7;
 }
