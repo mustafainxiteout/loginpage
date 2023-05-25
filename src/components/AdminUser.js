@@ -1,11 +1,17 @@
 import React from 'react'
-import LogoutButton from './Logout'
+import HeaderComponent from './HeaderComponent'
+import Footercomponent from './FooterComponent'
+import Usecases from './Usecases'
 
 function AdminUser() {
   return (
-    <div>AdminUser
-        <LogoutButton/>
-    </div>
+    <section className='googlesans text-select-one'>
+      <HeaderComponent/>
+      <div className='overflow-auto custom-scroll' style={{marginTop:"90px",maxHeight:"84vh"}}>
+      <Usecases/>
+      </div>
+      <Footercomponent/>
+    </section>
   )
 }
 

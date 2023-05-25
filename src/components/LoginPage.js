@@ -59,7 +59,7 @@ function LoginPage({isAdmin}) {
   const validPasswordRegex = '^(?=.*?[A-Za-z])(?=.*?[0-9]).{8,}$';
 
   return (
-    <Container fluid className='googlesans'>
+    <Container fluid className='googlesans text-select-one'>
       <Row className='d-flex m-md-3 mt-md-5' style={{ maxheight: "94vh" }}>
         <Col lg={5} className='p-0 d-none d-lg-block'>
           <Carousel fade>
@@ -103,7 +103,7 @@ function LoginPage({isAdmin}) {
               <p className='text-violet t-fs'>Recovery Password</p>
             </Form.Group>
             </div>
-            <Button type="submit" className='w-100 py-3 fw-bold btn-violet t-fs' style={{letterSpacing:"1px"}}>
+            <Button type="submit" className='w-100 py-3 fw-bold sbtn btn-violet t-fs' style={{letterSpacing:"1px"}}>
               Submit
             </Button>
           </Form>
