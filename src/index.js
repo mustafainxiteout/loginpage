@@ -18,7 +18,7 @@ root.render(
   <Router>
     <Routes>
     <Route path='/' element={<App isAdmin={isAdmin}/>}/>
-    <Route exact path="/" element={<PrivateRoute/>}><Route exact path="/Userpage" element={isAdmin ? <AdminUser/> : <NormalUser/>} isAdmin={isAdmin}/></Route>
+    <Route exact path="/" element={<PrivateRoute/>}><Route exact path="/usecase" element={isAdmin ? <AdminUser/> : <NormalUser/>} isAdmin={isAdmin}/></Route>
     </Routes>
   </Router>
 );

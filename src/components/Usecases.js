@@ -49,7 +49,7 @@ function Usecases() {
   return (
     <section className='mb-5 p-3'>
       <center className='fw-bolder h5 d-block mb-3 d-md-none'>Choose Your Usecase</center>
-      <div className="d-flex flex-column mb-3 pt-md-5 flex-md-row col-md-8 offset-md-2 justify-content-md-center gap-4">
+      <div className="d-flex flex-column mb-3 pt-md-5 flex-md-row col-md-10 col-xl-8 offset-md-1 offset-xl-2 justify-content-md-center gap-4">
         <Row>
         {cardData.map((card, index) => (
           <div key={index} className="col-md-6 col-lg-4 mb-4">

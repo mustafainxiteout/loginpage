@@ -24,7 +24,7 @@ function LoginPage({isAdmin}) {
   useEffect(()=>{
     
     if(isAuthorized){
-      navigate('/Userpage')
+      navigate('/usecase')
     }
   },[isAuthorized,navigate])
 
@@ -48,10 +48,10 @@ function LoginPage({isAdmin}) {
       }
       // determine if authorized based on isAdmin prop
       if(isAdmin===true){
-        navigate('/Userpage');
+        navigate('/usecase');
       }
       else{
-        navigate('/Userpage');
+        navigate('/usecase');
       }
     }
   }  
