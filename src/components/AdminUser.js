@@ -1,14 +1,13 @@
 import React from 'react'
 import HeaderComponent from './HeaderComponent'
 import Footercomponent from './FooterComponent'
-import Usecases from './Usecases'
 
-function AdminUser() {
+function AdminUser({content,headertitle}) {
   return (
-    <section className='googlesans text-select-one'>
-      <HeaderComponent/>
-      <div className='overflow-auto custom-scroll' style={{marginTop:"90px",maxHeight:"84vh"}}>
-      <Usecases/>
+    <section className='googlesans text-select-one position-fixed'>
+      <HeaderComponent headertitle={headertitle}/>
+      <div className='overflow-auto custom-scroll' style={{marginTop:"90px",minHeight:"80vh",maxHeight:"87vh"}}>
+      {content}
       </div>
       <Footercomponent/>
     </section>

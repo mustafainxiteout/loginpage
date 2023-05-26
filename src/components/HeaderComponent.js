@@ -3,7 +3,7 @@ import { Image, Navbar } from 'react-bootstrap'
 import { HomeIcon,PencilSquareIcon,UserIcon,PowerIcon} from '@heroicons/react/24/outline'
 import { useNavigate } from 'react-router-dom'
 
-function HeaderComponent() {
+function HeaderComponent({headertitle}) {
   const navigate=useNavigate();
   const navigationlinks = (link) => {
       navigate(link);
@@ -22,7 +22,7 @@ function HeaderComponent() {
             <div>
              <Image src='/megnad.png' className='d-inline' style={{maxHeight:"60px", maxWidth:"160px",marginRight:"30px",marginLeft:"2px"}}/> 
             </div>
-            <center className='fw-bolder h5 d-none d-md-inline'>Choose Your Usecase</center>
+            <center className='fw-bolder h5 d-none d-md-inline'>{headertitle}</center>
               <div className='d-flex gap-2'>
               <button className='btn text-center'><HomeIcon className="text-black me-0" style={{height:"20px",width:"20px"}}/></button>
               <div className="dropdown">

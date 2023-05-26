@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Card, Row } from 'react-bootstrap';
 import { PlusCircleIcon, XCircleIcon } from '@heroicons/react/24/outline';
+import { useNavigate } from 'react-router-dom'
 
 function Usecases() {
   const cardData = [
@@ -45,6 +46,8 @@ function Usecases() {
       description: 'There are many variations of passages of Lorem Ipsum available..',
     },
   ];
+ 
+  const navigate=useNavigate();
 
   return (
     <section className='mb-5 p-3'>
@@ -53,7 +56,7 @@ function Usecases() {
         <Row>
         {cardData.map((card, index) => (
           <div key={index} className="col-md-6 col-lg-4 mb-4">
-            <Card className="p-3 rounded-4 text-white card-violet">
+            <Card className="p-3 rounded-4 text-white card-violet" onClick={()=>navigate(`/usecase/${index}`)}>
               <Card.Body>
                 <Card.Title className="mb-3">
                   <h4 className="fw-bold">{card.title}</h4>

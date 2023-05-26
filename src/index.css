@@ -31,10 +31,86 @@ code {
 .t-fs{
   font-size:1.2rem;
 }
-}  
+.text-ws {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 2vw; /* adjust the value as needed */
+}
+}
+
+@media (min-width:1200px){
+  .text-ws {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 8vw; /* adjust the value as needed */
+  }
+}
 
 .btn-violet{
   background-color: #00193D;
+  border:none;
+}
+
+.wbtn{
+  background-color: #FFFFFF;
+}
+
+.wbtn:active, .wbtn:hover, .wbtn-check:checked+.wbtn, .wbtn.active, .wbtn.show, .wbtn:first-child:active, :not(.wbtn-check)+.wbtn:active{
+  background-color: #FFFFFF;
+}
+
+.wbtn:focus-visible{
+  background-color: #FFFFFF;
+  box-shadow: none;
+}
+
+.custom-accordion .accordion-button:focus {
+  box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color);
+  outline: none;
+  background-color: #eee;
+  color: #00193D;
+}
+
+.accordion-button:not(.collapsed){
+  color:black;
+  background-color: #eee;
+}
+
+.accordion-button:not(.collapsed)::after{
+background-image:var(--bs-accordion-btn-icon);
+}
+
+.audioplay {
+  height: 20px;
+  left: -10px;
+  position: relative;
+  max-width: 250px;
+}
+
+.picon{
+  margin-top:-1rem;
+  background-color: #6C98E1;
+}
+.picon:active, .picon:hover, .picon-check:checked+.picon, .picon.active, .picon.show, .picon:first-child:active, :not(.picon-check)+.picon:active{
+  background-color: #6C98E1;
+  border:none;
+}
+
+.picon:focus-visible{
+  background-color: #6C98E1;
+  box-shadow: none;
+  border: none;
+}
+
+.rx .form-check-input{
+  margin-top: 0%;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: #FFFFFF;
+  padding: 0%;
 }
 
 .text-violet{
@@ -76,6 +152,10 @@ input[type="password"]::-ms-clear {
   box-shadow: none;
 }
 
+.sbtn.disabled, .sbtn:disabled, fieldset:disabled .sbtn{
+  background-color: #00193D;
+}
+
 .text-select-one {
   user-select: none;
 }
@@ -84,8 +164,12 @@ input[type="password"]::-ms-clear {
   background-color: #6C98E1;
 }
 
+.bg-light-violet{
+  background-color: #E5EAF5;
+}
+
 .custom-scroll::-webkit-scrollbar {
-  width: 3px;
+  width: 2px;
 }
 
 /* Track */
