@@ -67,7 +67,7 @@ function ViewUsecase() {
     <div className='col-12 col-lg-4 offset-lg-1 mb-5'>
       <h5 className='fw-bolder ms-2'>Transcript</h5>
       <div className='container-fluid border mt-3 p-3 rounded-4 bg-white'>
-      <div className='d-flex justify-content-end py-1'><button className='btn rounded-circle picon' onClick={()=>setEdit(!edit)}><PencilIcon className="text-white" style={{height:"14px",width:"14px"}}/></button></div>
+      <div className='d-flex justify-content-end py-2'><button className='btn rounded-circle picon' onClick={()=>setEdit(!edit)}><PencilIcon className="text-white" style={{height:"14px",width:"14px"}}/></button></div>
         <div className='container-fluid bg-light py-2 rounded-4 overflow-auto custom-scroll' style={{height:"46vh"}}>
         {edit?(
         data.map((item, index) => (
