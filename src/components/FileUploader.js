@@ -1,36 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { Form, Spinner } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Spinner } from 'react-bootstrap';
 import { useDropzone } from 'react-dropzone';
 
 function FileUploader({checked}) {
-  const [groups, setGroups] = useState([]);
-  const [usecases, setUsecases] = useState([]);
-  const [groupOption, setGroupOption] = useState('');
-  const [usecaseOption, setUsecaseOption]=useState('')
   const [files, setFiles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [progress, setProgress] = useState(0);
-
-  const fetchGroups = () => {
-    // Replace 'API_URL' with the actual URL of your Flask API
-    
-  };
-
-
-  const fetchUsecases = () => {
-    // Replace 'API_URL' with the actual URL of your Flask API
-   
-  };
-
-  const handleUsecaseChange = (event) => {
-    const selectedusecase = event.target.value;
-    setUsecaseOption(selectedusecase);
-  };
-
-  useEffect(() => {
-    fetchGroups();
-    fetchUsecases();
-  }, []);
 
 
   const acceptedFileTypes = checked
@@ -85,8 +60,6 @@ const maxFileSize = checked
 
   const emptyFilesState=()=>{
     setFiles([]);
-    setGroupOption('');
-    setUsecaseOption('');
   }
 
   const simulateUpload = () => {
@@ -114,14 +87,11 @@ const maxFileSize = checked
   }  
 
   const handleFileUpload = () => {
-    if (files.length > 0 && groupOption && usecaseOption) {
+    if (files.length > 0) {
       setIsLoading(true);
       setProgress(0);
       const formData = new FormData();
       formData.append('file', files[0]);
-      formData.append('group', groupOption);
-      formData.append('ucid', usecaseOption)
-      
     }
     else{
         alert('No Files/Options are Selected.');

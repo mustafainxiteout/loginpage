@@ -1,20 +1,13 @@
 import React,{useState} from 'react'
-import { useParams } from 'react-router-dom'
 import FileUploader from './FileUploader';
-import { Row} from 'react-bootstrap';
+import { Form, Row} from 'react-bootstrap';
 import GetFiles from './GetFiles';
 import {PencilIcon} from '@heroicons/react/24/outline'
 
 function ViewUsecase() {
   const [checked, setChecked] = useState(true);
   const [edit,setEdit] = useState(true);
-
-  const handleChange = () => {
-    setChecked(!checked);
-  };
-
-  const {ucid}=useParams();
-  const data = [
+  const [data,setData] = useState([
     ['Respondent', 'Hello.'],
     ['Caller', "Hi, sir. This is Maya. I'm calling from Mahindra and Mahindra.  I'm speaking to Sajar Ali Khan."],
     ['Respondent', "Yes, I'm speaking."],
@@ -47,7 +40,21 @@ function ViewUsecase() {
     ['Caller', 'I am a medical professional.  Okay, dental professional.  Medical professional.  May I know in which city do you live in?'],
     ['Respondent', 'Is it possible? It will hardly take two minutes only.  Yeah.'],
     ['Caller', 'Okay, not an issue. I just wanted to know.  Thank you for giving your valuable time.  Have a great day.'],
-  ];
+  ]);
+
+  const handleChange = () => {
+    setChecked(!checked);
+  };
+
+  const handleTranscriptChange = (event) => {
+    const text = event.target.value;
+    const lines = text.split('\n');
+    const updatedData = lines.map((line) => {
+      const [key, ...value] = line.split(':');
+      return [key.trim(), value.join(':').trim()];
+    });
+    setData(updatedData);
+  };
 
   return (
     <section className='p-3 px-1 bg-light-violet' style={{minHeight:"84vh",overflow:'auto',minWidth:"100vw"}}>
@@ -69,17 +76,28 @@ function ViewUsecase() {
       <div className='container-fluid border mt-3 p-3 rounded-4 bg-white'>
       <div className='d-flex justify-content-end py-2'><button className='btn rounded-circle picon' onClick={()=>setEdit(!edit)}><PencilIcon className="text-white" style={{height:"14px",width:"14px"}}/></button></div>
         <div className='container-fluid bg-light py-2 rounded-4 overflow-auto custom-scroll' style={{height:"46vh"}}>
-        {edit?(
-        data.map((item, index) => (
-          <p key={index}>
-            <strong>{item[0]}:</strong> {item[1]}
-          </p>
-        ))
-        ):
-        ( 
-        <p>{'Hi'}</p>
-        )
-        }
+        {edit ? (
+  data.map((item, index) => (
+    <p key={index}>
+      <strong>{item[0]}:</strong> {item[1]}
+    </p>
+  ))
+) : (
+  <Form.Group controlId="transcriptInput">
+    <Form.Control
+      as="textarea"
+      rows={16}
+      required
+      type="text"
+      name="transcript"
+      value={data.map((item) => `${item[0]}: ${item[1]}`).join('\n')}
+      onChange={(event) => handleTranscriptChange(event)}
+      className='bg-light custom-scroll m-0'
+      style={{ boxShadow: '0px 0px',border: 'none' }}
+    />
+  </Form.Group>
+)}
+
         </div>
       </div>
       <div className='d-flex justify-content-end  mt-3'>
