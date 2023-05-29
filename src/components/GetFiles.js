@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Accordion, FormCheck } from 'react-bootstrap';
+import { Accordion, FormCheck, Spinner } from 'react-bootstrap';
 import axios from 'axios';
 
 function GetFiles({checked}) {
@@ -8,12 +8,17 @@ function GetFiles({checked}) {
     const [msg,setMsg]=useState(false);
     const audioRefs = useRef([]);
     const [fileContent, setFileContent] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     const fetchFiles = ({ check, apiUrl }) => {
+      setIsLoading(true);
       axios
         .get(apiUrl)
         .then((response) => {
           setFiles(response.data[0].files);
+          setTimeout(() => {
+            setIsLoading(false);
+          }, 7000); // Delay of 10 seconds before setting isLoading to false
           setMsg(false);
         })
         .catch((error) => {
@@ -95,6 +100,14 @@ function GetFiles({checked}) {
     </div> 
     </div>
     <div className='card card-body rounded-4 border-0'>
+    {isLoading ? (
+  <div className="text-center">
+    <Spinner animation="border" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </Spinner>
+  </div>
+) : (
+  <>
       { !msg && (
       <Accordion className="custom-accordion custom-scroll" style={{maxHeight: "200px", overflowY: "auto",overflowX:"hidden"}}>
       {files.map((file, index) => (
@@ -118,6 +131,8 @@ function GetFiles({checked}) {
       </Accordion>
      )}
      {msg && <p className='mt-3 p-2 px-3 border rounded-3 bg-light'>No Files Found.</p>}
+     </>
+  )}
      </div>
     </div>
     <div className='d-flex justify-content-end  mt-3'>

@@ -186,3 +186,7 @@ input[type="password"]::-ms-clear {
 .custom-scroll::-webkit-scrollbar-thumb:hover {
   background: #00193D; 
 }
+
+input:-internal-autofill-selected{
+  background-color: #FFFFFF;
+}
