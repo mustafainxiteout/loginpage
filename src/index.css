@@ -193,3 +193,7 @@ input[type="password"]::-ms-clear {
   background-color: white !important;
   color: black !important;
 }
+
+.border-violet{
+  border-color: paleturquoise;
+}

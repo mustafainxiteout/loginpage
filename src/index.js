@@ -13,6 +13,7 @@ import AdminUser from './components/AdminUser';
 import PrivateRoute from './Privateroute';
 import ViewUsecase from './components/ViewUsecase';
 import Usecases from './components/Usecases';
+import Insights from './components/Insights';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const isAdmin=true;
@@ -22,6 +23,7 @@ root.render(
     <Route path='/' element={<App isAdmin={isAdmin}/>}/>
     <Route exact path="/" element={<PrivateRoute/>}><Route exact path="/usecase" element={isAdmin ? <AdminUser content={<Usecases/>} headertitle="Choose Your Usecase" /> : <NormalUser/>} isAdmin={isAdmin}/></Route>
     <Route exact path='/usecase/:ucid' element={<AdminUser content={<ViewUsecase/>} />} />
+    <Route exact path='/aiusecase' element={<AdminUser content={<Insights/>} headertitle="Analysis Name" />}/>
     </Routes>
   </Router>
 );

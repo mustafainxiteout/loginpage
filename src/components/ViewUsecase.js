@@ -3,10 +3,12 @@ import FileUploader from './FileUploader';
 import { Form, Row} from 'react-bootstrap';
 import GetFiles from './GetFiles';
 import {PencilIcon} from '@heroicons/react/24/outline'
+import { useNavigate } from 'react-router-dom';
 
 function ViewUsecase() {
   const [checked, setChecked] = useState(true);
   const [edit,setEdit] = useState(true);
+  const navigate=useNavigate();
   const [data,setData] = useState([
     ['Respondent', 'Hello.'],
     ['Caller', "Hi, sir. This is Maya. I'm calling from Mahindra and Mahindra.  I'm speaking to Sajar Ali Khan."],
@@ -103,7 +105,7 @@ function ViewUsecase() {
         </div>
       </div>
       <div className='d-flex justify-content-end  mt-3'>
-    <button className='btn btn-violet sbtn text-white w-50 rounded-3'>Proceed</button>
+    <button className='btn btn-violet sbtn text-white w-50 rounded-3' onClick={()=>navigate('/aiusecase')}>Generate Insights</button>
     </div>
     </div>
     </Row>

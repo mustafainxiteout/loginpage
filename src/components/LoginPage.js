@@ -75,7 +75,7 @@ function LoginPage({isAdmin}) {
           ))}
           </Carousel>
         </Col>
-        <Col className='d-flex flex-column justify-content-center' md={12} lg={{span:4,offset:3}} xl={{offset:3}}>
+        <Col className='d-flex flex-column justify-content-center' md={12} lg={{span:4,offset:2}} xl={{offset:3}}>
         <div className="text-center mt-5 mt-md-0 d-grid gap-2">
         <center><img src='./meg.png' alt="megnad" style={{height:"64px",width:"180px"}}/></center>
         <h3>Hello Again</h3>
