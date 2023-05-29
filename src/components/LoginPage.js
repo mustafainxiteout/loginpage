@@ -60,8 +60,8 @@ function LoginPage({isAdmin}) {
 
   return (
     <Container fluid className='googlesans text-select-one'>
-      <Row className='d-flex m-md-3 m-md-3' style={{ maxheight: "98vh" }}>
-      <img src='./ix.png' alt="megnad" className='position-absolute' style={{height:"70px",width:"100px",right:"0px"}}/>
+      <Row className='d-flex m-md-3' style={{ maxheight: "98vh" }}>
+      <img src='./ix.png' alt="megnad" className='position-absolute' style={{height:"60px",width:"92px",right:"0px",top:"6px"}}/>
         <Col lg={3} xl={3} className='p-0 d-none d-lg-block'>
           <Carousel fade>
           {carouselItems.map((item) => (
@@ -77,8 +77,8 @@ function LoginPage({isAdmin}) {
         </Col>
         <Col className='d-flex flex-column justify-content-center' md={12} lg={{span:4,offset:3}} xl={{offset:3}}>
         <div className="text-center mt-5 mt-md-0 d-grid gap-2">
-        <center><img src='./meg.png' alt="megnad" style={{height:"80px",width:"220px"}}/></center>
-        <h2 className='mt-1'>Hello Again</h2>
+        <center><img src='./meg.png' alt="megnad" style={{height:"64px",width:"180px"}}/></center>
+        <h3>Hello Again</h3>
         </div>
           <Form noValidate validated={validated} className='d-grid gap-4 mb-4 mt-4' onSubmit={handleSubmit}>
           <Form.Group controlId="formBasicEmail" className="position-relative inputGroupContainer">
