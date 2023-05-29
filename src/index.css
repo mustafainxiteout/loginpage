@@ -29,7 +29,7 @@ code {
 }
 @media (min-width: 992px) {
 .t-fs{
-  font-size:1.2rem;
+  font-size:1rem;
 }
 .text-ws {
   white-space: nowrap;
@@ -118,7 +118,7 @@ audio::-webkit-media-controls-panel {
 }
 
 .inputl {
-    height: 60px;
+    height: 50px;
     outline: none;
 } 
 
@@ -187,6 +187,9 @@ input[type="password"]::-ms-clear {
   background: #00193D; 
 }
 
-input:-internal-autofill-selected{
-  background-color: #FFFFFF;
+.inputl:-internal-autofill-selected {
+  appearance: menulist-button;
+  background-image: none !important;
+  background-color: white !important;
+  color: black !important;
 }

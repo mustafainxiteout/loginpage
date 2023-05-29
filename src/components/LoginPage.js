@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import { Container, Row, Col, Carousel, Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import {UserIcon, LockClosedIcon}  from '@heroicons/react/24/outline'
+import {UserIcon}  from '@heroicons/react/24/outline'
 
 function LoginPage({isAdmin}) {
 
@@ -60,11 +60,12 @@ function LoginPage({isAdmin}) {
 
   return (
     <Container fluid className='googlesans text-select-one'>
-      <Row className='d-flex m-md-3 mt-md-5' style={{ maxheight: "94vh" }}>
-        <Col lg={5} className='p-0 d-none d-lg-block'>
+      <Row className='d-flex m-md-3 m-md-3' style={{ maxheight: "98vh" }}>
+      <img src='./ix.png' alt="megnad" className='position-absolute' style={{height:"70px",width:"100px",right:"0px"}}/>
+        <Col lg={3} xl={3} className='p-0 d-none d-lg-block'>
           <Carousel fade>
           {carouselItems.map((item) => (
-            <Carousel.Item key={item.id} className='rounded-4' style={{height:"90vh",overflow:"hidden"}}>
+            <Carousel.Item key={item.id} className='rounded-4' style={{height:"96vh",overflow:"hidden"}}>
               <img className="h-100" src={item.image} alt={`Slide ${item.id}`}/>
               <Carousel.Caption>
               <h3>slide label</h3>
@@ -74,24 +75,21 @@ function LoginPage({isAdmin}) {
           ))}
           </Carousel>
         </Col>
-        <Col md={12} lg={{span:4,offset:2}} xl={{offset:2}}>
-        <div className="d-flex justify-content-end m-3 m-lg-0">
-        <img src='./ix.png' alt="megnad" style={{height:"70px",width:"80px"}}/>
-        </div>
-        <div className="text-center mt-4 d-grid gap-2">
-        <center><img src='./meg.png' alt="megnad" style={{height:"100px",width:"280px"}}/></center>
-        <h2 className='mt-3'>Hello Again</h2>
+        <Col className='d-flex flex-column justify-content-center' md={12} lg={{span:4,offset:3}} xl={{offset:3}}>
+        <div className="text-center mt-5 mt-md-0 d-grid gap-2">
+        <center><img src='./meg.png' alt="megnad" style={{height:"80px",width:"220px"}}/></center>
+        <h2 className='mt-1'>Hello Again</h2>
         </div>
           <Form noValidate validated={validated} className='d-grid gap-4 mb-4 mt-4' onSubmit={handleSubmit}>
           <Form.Group controlId="formBasicEmail" className="position-relative inputGroupContainer">
             <Form.Label className='position-absolute rounded px-2 it ms-3 bg-white t-fs'>Email</Form.Label>
-            <Form.Text className='position-absolute' style={{top:'10px',right:'20px',fontSize:'1.2rem'}}><UserIcon className='text-grayl' style={{height:"22px",width:"30px"}}/></Form.Text>
-            <Form.Control className="inputl" required pattern="^\S*$" type="email" placeholder="" style={{boxShadow: '0px 0px'}}/>   
+            <Form.Text className='position-absolute' style={{top:'6px',right:'20px',fontSize:'1.2rem'}}><UserIcon className='text-grayl' style={{height:"22px",width:"30px"}}/></Form.Text>
+            <input className="form-control inputl" required pattern="^\S*$" type="email" placeholder="" style={{boxShadow: '0px 0px'}}/>   
             <Form.Control.Feedback type='invalid'>Please enter a valid email address.</Form.Control.Feedback>
           </Form.Group>
           <Form.Group controlId="formBasicPassword" className="position-relative inputGroupContainer">
             <Form.Label className='position-absolute rounded px-2 it ms-3 bg-white t-fs'>Password</Form.Label>
-            <Form.Text className='position-absolute' style={{top:'10px',right:'20px',fontSize:'1.2rem'}} onClick={() => setShowPassword(!showPassword)}><LockClosedIcon className='text-grayl' style={{height:"22px",width:"30px"}}/></Form.Text>
+            <Form.Text className='position-absolute' style={{top:'6px',right:'20px',fontSize:'1.2rem'}} onClick={() => setShowPassword(!showPassword)}><img src='./password.svg' style={{height:"22px",width:"30px"}} alt='password-icon'/></Form.Text>
             <Form.Control className="inputl" required pattern={validPasswordRegex} type={showPassword ? 'text' : 'password'} placeholder="" style={{boxShadow: '0px 0px'}}/>
             <Form.Control.Feedback type='invalid'>Please enter a valid password.</Form.Control.Feedback>
           </Form.Group>
@@ -104,7 +102,7 @@ function LoginPage({isAdmin}) {
             </Form.Group>
             </div>
             <Button type="submit" className='w-100 py-3 fw-bold sbtn btn-violet t-fs' style={{letterSpacing:"1px"}}>
-              Submit
+              Login
             </Button>
           </Form>
         </Col>

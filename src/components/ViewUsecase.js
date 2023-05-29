@@ -75,25 +75,27 @@ function ViewUsecase() {
       <h5 className='fw-bolder ms-2'>Transcript</h5>
       <div className='container-fluid border mt-3 p-3 rounded-4 bg-white'>
       <div className='d-flex justify-content-end py-2'><button className='btn rounded-circle picon' onClick={()=>setEdit(!edit)}><PencilIcon className="text-white" style={{height:"14px",width:"14px"}}/></button></div>
-        <div className='container-fluid bg-light py-2 rounded-4 overflow-auto custom-scroll' style={{height:"46vh"}}>
+        <div className='container-fluid bg-light py-2 pe-0 rounded-4'>
         {edit ? (
-  data.map((item, index) => (
+          <div className='overflow-auto custom-scroll'style={{maxHeight:"38vh"}}>
+  {data.map((item, index) => (
     <p key={index}>
       <strong>{item[0]}:</strong> {item[1]}
     </p>
-  ))
+  ))}
+  </div>
 ) : (
   <Form.Group controlId="transcriptInput">
     <Form.Control
       as="textarea"
-      rows={16}
+      rows={15}
       required
       type="text"
       name="transcript"
       value={data.map((item) => `${item[0]}: ${item[1]}`).join('\n')}
       onChange={(event) => handleTranscriptChange(event)}
-      className='bg-light custom-scroll m-0'
-      style={{ boxShadow: '0px 0px',border: 'none' }}
+      className='bg-light m-0 custom-scroll'
+      style={{ boxShadow: '0px 0px',border: 'none',maxHeight:"38vh",resize:'none'}}
     />
   </Form.Group>
 )}
