@@ -37,6 +37,9 @@ code {
   text-overflow: ellipsis;
   max-width: 2vw; /* adjust the value as needed */
 }
+.w-col{
+  max-width: 40%;
+}
 }
 
 @media (min-width:1200px){

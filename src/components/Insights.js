@@ -1,33 +1,94 @@
-import { ArrowLeftIcon, Bars3Icon } from '@heroicons/react/24/outline'
-import React from 'react'
-import { Row, ListGroup } from 'react-bootstrap'
+import { ArrowLeftIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import React, { useState } from 'react'
+import { Row, ListGroup, Table } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom';
 
 function Insights() {
+    const [showData,setShowData]=useState(false);
+    const navigate=useNavigate();
+    const data=[
+        ['Respondent', 'Hello.'],
+        ['Caller', "Hi, sir. This is Maya. I'm calling from Mahindra and Mahindra.  I'm speaking to Sajar Ali Khan."],
+        ['Respondent', "Yes, I'm speaking."],
+        ['Caller', "Sir, you had shown an interest in the XUV300 vehicle, right?  Yes.  We need some feedback from you to improve the customer experience.  You tell me.  Sir, what were the TSP's you were looking for to purchase the vehicle?"],
+        ['Respondent', 'What are you doing?'],
+        ['Caller', 'What were the features you were looking for to purchase the vehicle?'],
+        ['Respondent', 'We are in a meeting right now.'],
+        ['Caller', 'Can you speak to us, sir?'],
+        ['Respondent', 'Yes, you tell me.'],
+        ['Caller', 'What were the things you liked about the vehicle?'],
+        ['Respondent', 'I liked the vehicle a lot.'],
+        ['Caller', 'I liked the features.'],
+        ['Respondent', 'I liked the interior.  The interior is good.'],
+        ['Caller', "What else did you like about the interior?  And were you looking for any other vehicle other than the XUV300?  No, no one is looking for any other vehicle.  And your first priority is the XUV300?  Yes.  Is there anything that you don't like about the XUV300?"],
+        ['Respondent', 'Why will I say anything negative about anyone?  You can say it positively.'],
+        ['Caller', "Is there anything that you don't like about the vehicle?"],
+        ['Respondent', 'We are very positive.'],
+        ['Caller', 'But sir, if you tell us about the things that you want to improve,'],
+        ['Respondent', 'There are so many technical persons out there.  I am a customer.  I am only selling the good things in the market.'],
+        ['Caller', 'May I know if you are looking for the petrol or diesel?  Diesel.'],
+        ['Respondent', 'Manual or automatic?'],
+        ['Caller', 'Automatic.  Do you have any other vehicle?'],
+        ['Respondent', 'Let me see later.'],
+        ['Caller', 'Not ready to share sir.  What exactly?  Do you have any other vehicle or what?'],
+        ['Respondent', 'Let me talk later.'],
+        ['Caller', 'Okay, so when should I call you back?'],
+        ['Respondent', 'Again and again.'],
+        ['Caller', 'It is a teacher organization.'],
+        ['Respondent', 'Okay, you are an agent?  No, no.'],
+        ['Caller', 'I am a medical professional.  Okay, dental professional.  Medical professional.  May I know in which city do you live in?'],
+        ['Respondent', 'Is it possible? It will hardly take two minutes only.  Yeah.'],
+        ['Caller', 'Okay, not an issue. I just wanted to know.  Thank you for giving your valuable time.  Have a great day.'],
+      ]
   return (
-    <section className='p-3 px-1 bg-light-violet' style={{minHeight:"84vh",overflow:'auto',minWidth:"100vw"}}>
-    <Row className='gap-5 mt-4 m-2 mb-4 mx-0 mx-md-2 d-flex justify-content-center'>
-    <div className='col-12 col-lg-6 p-2'>
-      <div className='d-flex gap-2'><div className='bg-white rounded-2 p-1 border-primary border text-primary'><ArrowLeftIcon style={{height:"18px",width:"30px"}}/></div><h5 className='fw-bolder ms-2 pt-1'>Select an Insight</h5></div>
-      <div className='d-flex gap-3 my-2'>
-      <div className='bg-white rounded-2 p-1 border-primary border text-primary'><Bars3Icon style={{height:"18px",width:"30px"}}/></div>
-      <ListGroup className='w-100 p-2 bg-white overflow-auto custom-scroll'style={{maxHeight:"48vh"}}>
-      <ListGroup.Item className='py-3'>Cras justo odio</ListGroup.Item>
-      <ListGroup.Item className='py-3'>Dapibus ac facilisis in</ListGroup.Item>
-      <ListGroup.Item className='py-3'>Morbi leo risus</ListGroup.Item>
-      <ListGroup.Item className='py-3'>Porta ac consectetur ac</ListGroup.Item>
-      <ListGroup.Item className='py-3'>Vestibulum at eros</ListGroup.Item>
-      <ListGroup.Item className='py-3'>Morbi leo risus</ListGroup.Item>
-      <ListGroup.Item className='py-3'>Porta ac consectetur ac</ListGroup.Item>
-      <ListGroup.Item className='py-3'>Vestibulum at eros</ListGroup.Item>
-      <ListGroup.Item className='py-3'>Vestibulum at eros</ListGroup.Item>
-      <ListGroup.Item className='py-3'>Morbi leo risus</ListGroup.Item>
-      <ListGroup.Item className='py-3'>Porta ac consectetur ac</ListGroup.Item>
-      <ListGroup.Item className='py-3'>Vestibulum at eros</ListGroup.Item>
+    <section className='px-1 p-3 bg-light-violet' style={{minHeight:"84vh",overflow:'auto',minWidth:"100vw"}}>
+    <Row className='gap-3 mt-4 mx-1 mb-4 d-flex justify-content-center'>
+    <div className='col-12 col-lg-7 p-1'>
+      <div className='d-flex gap-2'><div className='bg-white rounded-2 p-1 border-primary border text-primary' onClick={()=>navigate(-1)}><ArrowLeftIcon style={{height:"18px",width:"30px"}}/></div><h5 className='fw-bolder ms-2 pt-1'>Select an Insight</h5></div>
+      <div className='d-flex flex-column flex-lg-row gap-3 my-2'>
+      <div className='bg-white rounded-2 w-auto p-1 border-primary border w-col'>
+        {!showData && <Bars3Icon className='text-primary' style={{height:"18px",width:"30px"}} onClick={()=>setShowData(!showData)}/>}
+        {showData && <XMarkIcon className='text-primary' style={{height:"18px",width:"30px"}} onClick={()=>setShowData(!showData)}/>}
+      {showData && <p className='p-2 overflow-auto custom-scroll text-black' style={{maxHeight:"42vh"}}>{data}</p>}
+      </div>
+      <div className='w-100'>
+      <ListGroup className='w-100 p-2 bg-white overflow-auto custom-scroll'style={{maxHeight:"42vh"}}>
+      <ListGroup.Item><small>Cras justo odio</small></ListGroup.Item>
+      <ListGroup.Item><small>Dapibus ac facilisis in</small></ListGroup.Item>
+      <ListGroup.Item><small>Morbi leo risus</small></ListGroup.Item>
+      <ListGroup.Item><small>Porta ac consectetur ac</small></ListGroup.Item>
+      <ListGroup.Item><small>Vestibulum at eros</small></ListGroup.Item>
+      <ListGroup.Item><small>Morbi leo risus</small></ListGroup.Item>
+      <ListGroup.Item><small>Porta ac consectetur ac</small></ListGroup.Item>
+      <ListGroup.Item><small>Vestibulum at eros</small></ListGroup.Item>
+      <ListGroup.Item><small>Vestibulum at eros</small></ListGroup.Item>
+      <ListGroup.Item><small>Morbi leo risus</small></ListGroup.Item>
+      <ListGroup.Item><small>Porta ac consectetur ac</small></ListGroup.Item>
+      <ListGroup.Item><small>Vestibulum at eros</small></ListGroup.Item>
     </ListGroup>
+    <button className='btn btn-violet sbtn text-white w-auto rounded-3 mt-3' style={{maxWidth:"45%"}} onClick={()=>navigate('/aiusecase')}>Generate Insights</button>
     </div>
     </div>
-    <div className='col-12 col-lg-4 offset-lg-1 mb-5'>
-      <p>File_Name</p>
+    </div>
+    <div className='col-12 col-lg-4 p-1 mt-1 mb-3 pb-3'>
+      <h5 className='fw-bolder ms-2 py-1'>Audio.wav</h5>
+      <div className='w-100 bg-white p-2 rounded-2 overflow-auto custom-scroll'style={{maxHeight:"48vh"}}>
+        <small>What is the caller's name?</small>
+        <Table striped bordered className='my-2'>
+      <thead>
+        <tr>
+          <th><small>Answer</small></th>
+          <th><small>Verbatim</small></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><small className='text-break'>Vazir</small></td>
+          <td><small className='text-break'>Vazir,"Hello, Vazir speaking"</small></td>
+        </tr>
+        </tbody>
+        </Table>
+      </div>
     </div>
     </Row>
     </section>
