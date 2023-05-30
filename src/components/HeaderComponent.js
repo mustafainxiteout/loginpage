@@ -24,7 +24,7 @@ function HeaderComponent({headertitle}) {
             </div>
             <center className='fw-bolder h5 d-none d-md-inline'>{headertitle}</center>
               <div className='d-flex gap-2'>
-              <button className='btn text-center'><HomeIcon className="text-black me-0" style={{height:"20px",width:"20px"}}/></button>
+              <button className='btn border-0 text-center' onClick={()=>navigationlinks('/usecase')}><HomeIcon className="text-black me-0" style={{height:"20px",width:"20px"}}/></button>
               <div className="dropdown">
                 <button className="btn text-center border-0 dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button">
                 <UserIcon className="text-black me-0" style={{height:"20px",width:"20px"}}/>
