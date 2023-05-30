@@ -113,7 +113,7 @@ function GetFiles({checked}) {
       {files.map((file, index) => (
       <Accordion.Item eventKey={index.toString()} key={index}>
         <Accordion.Header>
-          <div className='d-flex flex-column flex-md-row gap-2'><div className='d-flex gap-2'><FormCheck type='radio' className='rx' id={file.file_name} name='fileSelection' value={file.file_name} onChange={handleFileSelection}/><small className={`${checked?'me-3 text-ws':'me-3 text-break'}`} title={file.file_name}>{file.file_name}</small></div>{checked && <audio className='audioplay' ref={ref => (audioRefs.current[index] = ref)} controls controlsList="noplaybackrate nodownload nofullscreen" src={`http://localhost:8000/${encodeURIComponent(file.file_url)}`} type="audio/mpeg"/>}</div></Accordion.Header>
+          <div className='d-flex flex-column flex-md-row gap-2'><div className='d-flex gap-2'><FormCheck type='radio' className='rx' id={file.file_name} name='fileSelection' value={file.file_name} onChange={handleFileSelection}/><small className={`${checked?'me-3 text-ws text-break':'me-3 text-break'}`} title={file.file_name}>{file.file_name}</small></div>{checked && <audio className='audioplay' ref={ref => (audioRefs.current[index] = ref)} controls controlsList="noplaybackrate nodownload nofullscreen" src={`http://localhost:8000/${encodeURIComponent(file.file_url)}`} type="audio/mpeg"/>}</div></Accordion.Header>
         <Accordion.Body>
           <div className='d-flex gap-4'>
         {checked?
@@ -124,7 +124,7 @@ function GetFiles({checked}) {
         )
         }
         </div>
-        {!checked && <p>{data}</p>}
+        {!checked && <p className='text-break'>{data}</p>}
         </Accordion.Body>
       </Accordion.Item>
       ))}
@@ -136,7 +136,7 @@ function GetFiles({checked}) {
      </div>
     </div>
     <div className='d-flex justify-content-end  mt-3'>
-    <button className={`${selectedFile?'btn btn-violet sbtn text-white w-50 rounded-3':'btn btn-violet sbtn text-white w-50 rounded-3 disabled'}`}>Transcribe</button>
+    <button className={`${selectedFile?'btn btn-violet sbtn text-white w-50 rounded-3 mb-6':'btn btn-violet sbtn text-white w-50 rounded-3 disabled mb-6'}`}>Transcribe</button>
     </div>
   </section>
   );

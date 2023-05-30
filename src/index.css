@@ -89,7 +89,7 @@ background-image:var(--bs-accordion-btn-icon);
   height: 20px;
   left: -10px;
   position: relative;
-  max-width: 250px;
+  max-width: 240px;
 }
 
 .picon{
@@ -182,12 +182,12 @@ input[type="password"]::-ms-clear {
  
 /* Handle */
 .custom-scroll::-webkit-scrollbar-thumb {
-  background: #00193D; 
+  background: #6C98E1; 
 }
 
 /* Handle on hover */
 .custom-scroll::-webkit-scrollbar-thumb:hover {
-  background: #00193D; 
+  background: #6C98E1; 
 }
 
 .inputl:-internal-autofill-selected {
@@ -197,6 +197,22 @@ input[type="password"]::-ms-clear {
   color: black !important;
 }
 
-.border-violet{
-  border-color: paleturquoise;
+.insightlg:active, .insightlg:hover, .insightlg:focus, .insightlg:focus-visible, .insightlg.show, .insightlg:visited, .insightlg:target{
+  color: #0c63e4;
+  background-color: #e7f1ff;
+}
+
+@media (max-height:780px){
+.mb-6{
+  margin-bottom: 4rem;
+}
+.mb-7{
+  margin-bottom: 5rem;
+}
+}
+
+@media (min-height:781px){
+  .mb-7{
+    margin-bottom: 1.5rem;
+  }
 }

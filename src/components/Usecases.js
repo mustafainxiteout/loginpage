@@ -90,7 +90,7 @@ function Usecases() {
           Create New Usecase
         </Button>
       </div>
-      <div className="text-center">
+      <div className="text-center mb-6">
         <Button className="btn btn-light border py-2 mt-4 fw-bold" style={{ letterSpacing: '1px' }}>
           Load More...
         </Button>

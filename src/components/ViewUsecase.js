@@ -81,7 +81,7 @@ function ViewUsecase() {
         {edit ? (
           <div className='overflow-auto custom-scroll'style={{maxHeight:"38vh"}}>
   {data.map((item, index) => (
-    <p key={index}>
+    <p className='text-break' key={index}>
       <strong>{item[0]}:</strong> {item[1]}
     </p>
   ))}
@@ -96,7 +96,7 @@ function ViewUsecase() {
       name="transcript"
       value={data.map((item) => `${item[0]}: ${item[1]}`).join('\n')}
       onChange={(event) => handleTranscriptChange(event)}
-      className='bg-light m-0 custom-scroll'
+      className='bg-light m-0 custom-scroll text-break'
       style={{ boxShadow: '0px 0px',border: 'none',maxHeight:"38vh",resize:'none'}}
     />
   </Form.Group>
@@ -104,7 +104,7 @@ function ViewUsecase() {
 
         </div>
       </div>
-      <div className='d-flex justify-content-end  mt-3'>
+      <div className='d-flex justify-content-end mb-6 mt-3'>
     <button className='btn btn-violet sbtn text-white w-50 rounded-3' onClick={()=>navigate('/aiusecase')}>Generate Insights</button>
     </div>
     </div>
